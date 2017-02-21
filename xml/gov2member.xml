@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<member>
+    <account_id>31</account_id>
+    <status>active</status>
+    <fullname>Seno Vijay</fullname>
+    <facebook>1699635460315265</facebook>
+    <privilege controller="/restricted.php">
+        <case>tulis</case>
+    </privilege>	
+</member>
+<member>
+    <account_id>14</account_id>
+    <status>active</status>
+    <fullname>Wibisono Sastrodiwiryo</fullname>
+    <facebook>10153940886527008</facebook>
+    <privilege controller="/restricted.php">
+        <case>baca</case>
+    </privilege>
+</member>
+<member> 
+    <account_id>15</account_id> 
+    <status>active</status> 
+    <fullname>Hafidz Muttaqin </fullname> 
+    <facebook>hav142</facebook> 
+    <privilege controller="/satudata.php">
+		<case>baca</case>
+	</privilege>
+    <privilege controller="/restricted.php">
+        <case>baca</case>
+    </privilege>
+</member>
+</data>

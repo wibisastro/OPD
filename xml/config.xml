@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gov2config>
+    <comm>ok</comm>
+    <title>Gov 2.0 StarterKit</title>
+    <webmaster>wibi@alumni.ui.go.id</webmaster>
+    <secure>false</secure>
+    <flickr>
+        <auth>http://www.flickr.com/services/auth/?</auth>
+        <rest>http://flickr.com/services/rest/?</rest>
+    </flickr>
+    <platform>
+        <auth>https://sso.bappeda.gov2.web.id</auth>
+        <arch>https://arsitektur.gov2.web.id</arch>
+        <stan>https://standar.gov2.web.id</stan>
+        <apikey>https://gov2.mti08.vlsm.org</apikey>
+        <cloud>https://cloud.bappeda.gov2.web.id</cloud>
+    </platform>
+    <apikey>
+        <public>[]</public>
+        <secret>[]</secret>
+    </apikey>
+    <service>
+        <login>open</login>
+		<catalog>open</catalog>
+    </service>
+</gov2config>

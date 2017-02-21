@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overview>
+	<section>
+        <section_id>1</section_id>
+		<caption>Overview</caption>
+		<content><![CDATA[
+Gov 2.0 StarterKit adalah sebuah aplikasi kecil berbasis web yang dirancang untuk dapat menggunakan Platform Government 2.0 Indonesia. Dengan menggunakan aplikasi kecil maka aplikasi Anda yang sudah ada dapat memanfaatkan layanan-layanan yang disediakan oleh Platform Gov 2.0 seperti misalnya Single Account. Dalam starterkit ini disertai dengan contoh aplikasi yang menggunakan Single Account.
+        ]]></content>
+	</section>
+	<section>
+        <section_id>2</section_id>
+		<caption>Requirements</caption>
+		<content><![CDATA[
+<pre>
+- Min PHP 4.1.0 - tested with 4.2.2
+- Internet Domain Name
+- Web Hosting
+</pre>
+        ]]></content>
+	</section>
+	<section>
+        <section_id>3</section_id>
+		<caption>Installation</caption>
+		<content><![CDATA[
+<pre>
+[1] Siapkan sebuah domain yang sudah bisa diakses melalui web.
+[2] Extract, contoh CLI linux: tar -xzvf Gov2StarterKit_x.x.x.tar.gz
+[3] Buka URL /index.php di browser Anda
+</pre>
+        ]]></content>
+	</section>
+	<section>
+        <section_id>4</section_id>
+		<caption>Manifest</caption>
+		<content><![CDATA[
+<p>
+Terdapat dua modul yang terpisah, modul layanan membership Single Account Gov 2.0 dan modul framework sederhana.
+</p><p>
+Modul Single Account Gov 2.0 berfungsi sebagai modul otentikasi dan otorisasi login ke Platform Gov 2.0
+</p><p>
+<pre>
+./controller/gov2auth.php
+./controller/gov2login.php
+./controller/gov2model.php
+./controller/gov2view.php
+./controller/gov2member.xml
+</pre>
+</p><p>
+Simple Framework Gov 2.0 berfungsi sebagai modul aplikasi antara muka pengguna dengan layanan Platform Gov 2.0. Modul ini dapat diintegrasikan dengan framework yang lain seperti CodeIgniter, CakePHP, Drupal atau framework manapun selama bisa memahami cara kerjanya.
+</p><p>
+Modul ini berisi 5 subfolder, salah satu subfoldernya diset sebagai rootweb. Untuk meningkatkan keamanan jangan tempatkan semua subfolder pada rootweb, hanya subfolder ./controller/ yang menjadi rootweb. Folder-folder tersebut adalah:
+</p><p>
+<pre>
+./conf/ berisi file-file konfigurasi
+./controller/ berisi file-file yang dapat diakses dari browser (rootweb) 
+./xml/ berisi file-file data dalam format xml
+./model/ berisi file library
+./view/ berisi file-file template
+</pre>
+</p><p>
+Kemudian pada root web selain 5 file gov2*.php di atas juga terdapat file-file sebagai berikut
+</p><p>
+<pre>
+./controller/index.php file Home / Beranda
+./controller/login.php file untuk layanan login/profile
+./controller/api.php file untuk melayani request API
+./controller/cloud.php file antara muka layanan Gov 2.0
+</pre>
+</p><p>
+Folder ./xml/
+</p><p>
+<pre>
+./xml/config.xml
+./xml/config_local.xml
+./xml/menu.xml
+./xml/text.xml
+./xml/overview.xml
+</pre>
+</p><p>
+Folder ./model/
+</p><p>
+<pre>
+./model/api.php file untuk mengirim API request
+./model/document.php file untuk mengatur tampilan
+</pre>
+</p><p>
+Folder ./view/general/ (template utama)
+</p><p>
+<pre>
+./view/general/body.php
+./view/general/bottombar.php
+./view/general/chat.php
+./view/general/cloud.php
+./view/general/error.php
+./view/general/footer.php
+./view/general/head.php
+./view/general/header.php
+./view/general/index.php
+./view/general/sidebar.php
+./view/general/titlebar.php
+./view/general/topbar.php
+</pre>
+</p><p>
+Folder ./view/scaffold/ (template CRUD)
+</p><p>
+<pre>
+./view/scaffold/browse.php
+./view/scaffold/edit.php
+./view/scaffold/remove.php
+./view/scaffold/response.php
+</pre>
+</p>
+        ]]></content>
+	</section>
+	<section>
+        <section_id>5</section_id>
+		<caption>Authorization</caption>
+		<content><![CDATA[
+Otorisasi dilakukan dengan menambahkan record pada file XML:
+<pre>
+./controller/gov2member.xml
+</pre>
+Terdapat tiga 4 level access-control
+<pre>
+- public: tidak dibutuhkan otentikasi (login)
+- guest: butuh otentikasi
+- member: butuh otentikasi dan terdaftar pada file XML gov2member.xml
+- webmaster: bypass semua privilege
+</pre>
+Cara menggunakan sisipkan baris di bawah ini pada awal script:
+<pre>
+require("gov2model.php");
+$gov2=new gov2model;
+#--- ganti "member" dengan level yang diinginkan
+$gov2->authorize("member"); 
+</pre>
+        ]]></content>
+	</section>
+</overview>

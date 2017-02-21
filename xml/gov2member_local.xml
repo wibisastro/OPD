@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<member>
+    <account_id>1</account_id>
+    <status>active</status>
+    <fullname>Wibisono Sastrodiwiryo</fullname>
+    <facebook></facebook>
+    <privilege controller="/controller/restricted.php">
+        <case>baca</case>
+    </privilege>
+    <privilege controller="/controller/contoh.php">
+        <case>add</case>
+        <case>remove</case>
+        <case>edit</case>
+        <case>update</case>
+    </privilege>
+</member>
+<member> 
+    <account_id>15</account_id> 
+    <status>active</status> 
+    <fullname>Hafidz Muttaqin </fullname> 
+    <facebook>hav142</facebook> 
+    <webmaster>1</webmaster> 
+</member>
+</data>
