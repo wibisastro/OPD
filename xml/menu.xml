@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mainmenu>
 	<menu>
-        <menu_id>1</menu_id>
-        <icon>fa-sitemap</icon>
-		<caption>Struktur Organisasi</caption>
-		<url>struktur.php</url>
-	</menu>
-	<menu>
         <menu_id>2</menu_id>
         <icon>fa-institution</icon>
 		<caption>OPD</caption>
 		<url>opd.php</url>
-	</menu>
-	<menu>
-        <menu_id>3</menu_id>
-        <icon>fa-folder</icon>
-		<caption>Satuan</caption>
-		<url>satuan.php</url>
-	</menu>
-	<menu>
-        <menu_id>4</menu_id>
-        <icon>fa-folder</icon>
-		<caption>Sumber Dana</caption>
-		<url>sumberdana.php</url>
 	</menu>
 </mainmenu>

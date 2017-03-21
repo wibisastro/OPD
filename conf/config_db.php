@@ -1,6 +1,6 @@
 <?
 #---------------------------------------cybergl platform tables configuration
-    $tbl_apicall        = "apicall";
+    $tbl_opd        = "opd";
 
 #---------------------------------------database classes
 
@@ -9,9 +9,9 @@ class db_connection {
 		static $recent_random;
         switch (STAGE) {
             case "build":
-				$db["master"]["dbname"]	= "pmap3";
-                $db["master"]["user"]	= "pmap3";
-				$db["master"]["pass"]	= "nassarying2";
+				$db["master"]["dbname"]	= "code4_opd";
+                $db["master"]["user"]	= "code4opd";
+				$db["master"]["pass"]	= "";
 				$db["master"]["host"]	= "localhost";
             break;
             default:
@@ -50,6 +50,20 @@ class db_connection {
        }
        return $result;
    }
-
+   
+	function read_enum($table,$field) {
+		list($db_link_id,$db_name)=$this->connect_db();
+		$query="DESCRIBE $table";
+		$daftar = $this->read_db($db_name, $query,$db_link_id) or die("browse: ".mysqli_error($db_link_id));
+		while ($buffer = mysqli_fetch_object($daftar)) {
+			if ($buffer->Field==$field) {
+				$result=str_replace("enum(", "",$buffer->Type);
+				$result=str_replace(")", "", $result);
+				$result=str_replace("'", "", $result);
+				$result=explode(",", $result);
+			}
+		}
+		return $result;
+	}
 }
 ?>

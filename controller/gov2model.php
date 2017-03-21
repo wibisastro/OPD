@@ -37,8 +37,8 @@ switch ($_SERVER["SERVER_NAME"]) { #-- deployment pipeline
 
 if ($_SERVER["SERVER_NAME"]!='localhost') {
 //      define("GOV2XMLPATH","../xml"); #-ganti jika lokasinya dipindah. 
-	define("GOV2XMLPATH","/var/www/cloud_qa/bappeda/files/".$host[0]."/xml"); #-ganti jika lokasinya dipindah. 
-	define("account_url","https://sso.gov2.web.id");
+	define("GOV2XMLPATH","../xml"); #-ganti jika lokasinya dipindah. 
+	define("account_url","https://sso.code4.gov2.web.id");
 } else {
       define("GOV2XMLPATH",$_SERVER['DOCUMENT_ROOT']."/vlsm/mti08/controller"); 
       define("account_url","http://localhost/gov2/sso/controller"); 	
@@ -59,7 +59,7 @@ class gov2model {
             exit;
         }
 	}
-    
+
     function readxml ($filename) {
         if (file_exists(GOV2XMLPATH."/".$filename.".xml")) {return simplexml_load_file(GOV2XMLPATH."/".$filename.".xml");}
         else {return "NotExist";}    
@@ -76,7 +76,7 @@ class gov2model {
                     if ($privilege=="member" || $privilege=="webmaster") {
                         if ($_SERVER["SERVER_NAME"]=="localhost") {$members=$this->readxml("gov2member_local");}
                         else {$members=$this->readxml("gov2member");}
-                        if ($members!="NotExist") {
+                        if ($members && $members!="NotExist") {
                             foreach ($members->member as $member) {
                                 if ($member->account_id==$_SESSION["account_id"]) {
                                     $valid=$member;
